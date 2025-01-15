@@ -1,30 +1,29 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 const HomePage = require('../pages/homePage.js');
-//const HomePage = require('../pages/homePage.js'); 
 
-// test('letskodeit e2e happy path', async ({ page }) => {
+test('letskodeit e2e happy path', async ({ page }) => {
 
-//   //Navigation
-//   await page.goto('https://www.letskodeit.com/home');
+  //Navigation
+  await page.goto('https://www.letskodeit.com/home');
 
-//   // Click the Practice link.
-//   //await page.getByRole('link', { name: 'PRACTICE '}).click(); -- Wont work as element has no role. Element is marked as generic. In real world flag as accessibility issue to developers.
-//   await page.getByText('PRACTICE', { exact: true}).click();
+  // Click the Practice link.
+  //await page.getByRole('link', { name: 'PRACTICE '}).click(); -- Wont work as element has no role. Element is marked as generic. In real world flag as accessibility issue to developers.
+  await page.getByText('PRACTICE', { exact: true}).click();
 
-//   //switch context to new tab.
-//   const [newTab] = await Promise.all([
-//   page.context().waitForEvent('page'),
-//   await page.getByRole('link', { name: 'Element Practice' }).click(),
-//    ])
-//   await newTab.waitForLoadState('domcontentloaded');
+  //switch context to new tab.
+  const [newTab] = await Promise.all([
+  page.context().waitForEvent('page'),
+  await page.getByRole('link', { name: 'Element Practice' }).click(),
+   ])
+  await newTab.waitForLoadState('domcontentloaded');
 
-//   //assertions
-//   await expect(newTab).toHaveTitle(/Practice Page/);
-//   await expect(newTab.locator('h1')).toHaveText('Practice Page');
-// });
+  //assertions
+  await expect(newTab).toHaveTitle(/Practice Page/);
+  await expect(newTab.locator('h1')).toHaveText('Practice Page');
+});
 
-test.only('letskodeit fill in practice page e2e', async ({ page }) => {
+test('e2e complete practice page', async ({ page }) => {
 
 await page.goto('https://www.letskodeit.com/practice');
 
@@ -75,12 +74,12 @@ const textboxIsDisabled = await enabledDisabledtextbox.isDisabled();
 });
 
 
-test('letskodeit e2e utilising page objects', async ({ page }) => {
+test('e2e utilising page objects', async ({ page }) => {
 
   const homePage = new HomePage(page);
   await homePage.navigate();
   const newTab = await homePage.clickElementPracticeLink();
-  await expect(newTab).toHaveTitle('Practice Page2');
+  await expect(newTab).toHaveTitle('Practice Page');
   //add practice page page object.
   });
   
