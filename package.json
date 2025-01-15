@@ -1,0 +1,19 @@
+{
+  "name": "ui-automation-playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "execute-visual": "npx playwright test --headed show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5"
+  },
+  "dependencies": {
+    "playwright": "^1.49.1"
+  }
+}
